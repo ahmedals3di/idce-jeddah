@@ -83,6 +83,28 @@ html[lang="ar"] .eyebrow{font-family:'Cairo',sans-serif;letter-spacing:1px;font-
 
 /* ===== HERO ===== */
 .hero{position:relative;padding-top:150px;padding-bottom:80px}
+/* full-bleed video hero */
+.hero-video{min-height:100vh;display:flex;align-items:center;padding:150px 0 70px;overflow:hidden;background:var(--green-dd)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(13,126,63,.85),rgba(7,80,38,.8))}
+.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 26px;width:100%}
+.hero-video .hero-badge{background:rgba(255,255,255,.16);color:#fff}
+.hero-video .hero-badge .dot{background:#fff}
+.hero-video h1{color:#fff}
+.hero-video h1 .accent{color:#b9f0cd}
+.hero-video .lead{color:rgba(255,255,255,.92)}
+.hero-video .hero-info{margin-top:26px}
+.hero-video .hero-info .cell .k{color:rgba(255,255,255,.65)}
+.hero-video .hero-info .cell .v{color:#fff}
+.hero-video .hero-info .cell .v small{color:#b9f0cd}
+.hero-video .hero-social b{color:#fff}
+.hero-video .hero-social span{color:rgba(255,255,255,.85)}
+.hero-video .hero-social .avatars img{border-color:rgba(255,255,255,.9)}
+.hero-video .countdown{margin-top:36px}
+.btn-white{background:#fff;color:var(--green-dd)}
+.btn-white:hover{background:#eafaef}
+.btn-hero-ghost{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.55);color:#fff}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.24)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;max-width:1300px;margin:0 auto;padding:0 26px}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;background:var(--green-tint);color:var(--green-d);
   padding:8px 16px;border-radius:100px;font-size:13.5px;font-weight:700;margin-bottom:24px;font-family:var(--ff-ar)}
@@ -382,51 +404,34 @@ html[lang="ar"] .foot-inner h5{font-family:'Cairo',sans-serif;letter-spacing:0}
 <main>
 <!-- ==================================================== HOME -->
 <div class="page active" id="page-home">
-  <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-badge"><span class="dot"></span><span data-ar="تحت رعاية الجمعية السعودية لطب الأسنان" data-en="Under the patronage of the Saudi Dental Society">تحت رعاية الجمعية السعودية لطب الأسنان</span></div>
-        <h1 data-ar="المؤتمر والمعرض الدولي <span class='accent'>لطب الأسنان</span>" data-en="The International Dental <span class='accent'>Conference & Exhibition</span>">المؤتمر والمعرض الدولي <span class="accent">لطب الأسنان</span></h1>
-        <p class="lead" data-ar="منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة." data-en="A Saudi year-round professional ecosystem — science, innovation, research and business under one brand, in the heart of Jeddah.">منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة.</p>
-        <div class="hero-info">
-          <div class="cell"><div class="k" data-ar="التاريخ" data-en="Dates">التاريخ</div><div class="v" data-ar="02 – 04 أكتوبر" data-en="02 – 04 October">02 – 04 أكتوبر</div></div>
-          <div class="cell"><div class="k" data-ar="المكان" data-en="Venue">المكان</div><div class="v">The Ritz-Carlton</div></div>
-          <div class="cell"><div class="k" data-ar="المدينة" data-en="City">المدينة</div><div class="v" data-ar="جدة · السعودية" data-en="Jeddah · KSA">جدة · السعودية</div></div>
-        </div>
-        <div class="hero-actions">
-          <button class="btn btn-green" onclick="go('register')" data-ar="احجز مقعدك" data-en="Secure your seat">احجز مقعدك</button>
-          <button class="btn btn-ghost" onclick="go('program')" data-ar="استعرض البرنامج" data-en="Explore program">استعرض البرنامج</button>
-        </div>
-        <div class="hero-social">
-          <div class="avatars">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
-          </div>
-          <div><b>+120</b> <span data-ar="متحدث دولي من 45 دولة" data-en="global speakers from 45 countries">متحدث دولي من 45 دولة</span></div>
-        </div>
+  <section class="hero hero-video">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+      <source src="IDCE.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span><span data-ar="تحت رعاية الجمعية السعودية لطب الأسنان" data-en="Under the patronage of the Saudi Dental Society">تحت رعاية الجمعية السعودية لطب الأسنان</span></div>
+      <h1 data-ar="المؤتمر والمعرض الدولي <span class='accent'>لطب الأسنان</span>" data-en="The International Dental <span class='accent'>Conference & Exhibition</span>">المؤتمر والمعرض الدولي <span class="accent">لطب الأسنان</span></h1>
+      <p class="lead" data-ar="منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة." data-en="A Saudi year-round professional ecosystem — science, innovation, research and business under one brand, in the heart of Jeddah.">منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة.</p>
+      <div class="hero-info">
+        <div class="cell"><div class="k" data-ar="التاريخ" data-en="Dates">التاريخ</div><div class="v" data-ar="02 – 04 أكتوبر" data-en="02 – 04 October">02 – 04 أكتوبر</div></div>
+        <div class="cell"><div class="k" data-ar="المكان" data-en="Venue">المكان</div><div class="v">The Ritz-Carlton</div></div>
+        <div class="cell"><div class="k" data-ar="المدينة" data-en="City">المدينة</div><div class="v" data-ar="جدة · السعودية" data-en="Jeddah · KSA">جدة · السعودية</div></div>
       </div>
-      <div class="hero-visual">
-        <div class="hv-panel">
-          <div class="grid-dots"></div>
-          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="none" stroke="#fff" stroke-width="10" stroke-dasharray="168 71" transform="rotate(40 50 50)"/></svg>
-        </div>
-        <div class="hv-card c1">
-          <div class="k" data-ar="جدولك الذكي · اليوم 1" data-en="Your smart agenda · Day 1">جدولك الذكي · اليوم 1</div>
-          <div class="hv-row"><span class="t">09:00</span><span class="d" data-ar="الجلسة الافتتاحية الرئيسية" data-en="Opening keynote">الجلسة الافتتاحية الرئيسية</span></div>
-          <div class="hv-row"><span class="t">10:30</span><span class="d" data-ar="الزراعة الموجّهة رقمياً" data-en="Guided digital implants">الزراعة الموجّهة رقمياً</span></div>
-          <div class="hv-row"><span class="t">12:00</span><span class="d" data-ar="الذكاء الاصطناعي في الابتسامة" data-en="AI in smile design">الذكاء الاصطناعي في الابتسامة</span></div>
-        </div>
-        <div class="hv-card c2">
+      <div class="hero-actions">
+        <button class="btn btn-white" onclick="go('register')" data-ar="احجز مقعدك" data-en="Secure your seat">احجز مقعدك</button>
+        <button class="btn btn-hero-ghost" onclick="go('program')" data-ar="استعرض البرنامج" data-en="Explore program">استعرض البرنامج</button>
+      </div>
+      <div class="hero-social">
+        <div class="avatars">
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
-          <div><span class="n">Dr. Abdullah Al-Harbi</span><span class="r" data-ar="استشاري زراعة" data-en="Implant Consultant">استشاري زراعة</span></div>
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
         </div>
-        <div class="hv-card c3"><b data-count="240">0</b><span data-ar="عارض" data-en="Exhibitors">عارض</span></div>
+        <div><b>+120</b> <span data-ar="متحدث دولي من 45 دولة" data-en="global speakers from 45 countries">متحدث دولي من 45 دولة</span></div>
       </div>
-    </div>
-    <div class="wrap" style="margin-top:70px">
-      <div class="countdown" id="countdown" style="justify-content:flex-start"></div>
+      <div class="countdown" id="countdown"></div>
     </div>
   </section>
 
