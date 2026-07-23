@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IDCE — The International Dental Conference & Exhibition · Jeddah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0d7e3f; --green-d:#0a6a34; --green-dd:#075026; --green-bright:#14a052; --green-tint:#e9f5ee;
+  --charcoal:#3a3a3a;
+  --bg:#ffffff; --bg2:#f4f6f8; --bg3:#eef1f4;
+  --ink:#18212c; --head:#20272f; --muted:#5a6b7b; --muted2:#8494a3;
+  --line:#e5e9ed; --line2:#d7dde3;
+  --card:#ffffff;
+  --shadow:0 10px 30px -14px rgba(20,45,30,.18);
+  --shadow-lg:0 28px 66px -22px rgba(20,45,30,.28);
+  --radius:16px;
+  --ff-head:'Oswald','Cairo',sans-serif;
+  --ff-ar:'Tajawal',sans-serif;
+  --ff-en:'Barlow',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff-ar);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html[lang="en"] body{font-family:var(--ff-en)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--green);color:#fff}
+
+h1,h2,h3,h4{font-family:var(--ff-head);font-weight:700;line-height:1.1;color:var(--head)}
+html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] h3{text-transform:uppercase;letter-spacing:.4px}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] h4{font-family:'Cairo',sans-serif;font-weight:800}
+
+/* ===== NAV ===== */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;background:rgba(255,255,255,.75);backdrop-filter:blur(10px)}
+.nav-scrolled{background:rgba(255,255,255,.96);box-shadow:0 4px 20px -14px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;gap:18px;max-width:1300px;margin:0 auto;padding:14px 26px}
+.brand{display:flex;align-items:center;cursor:pointer}
+.brand-mark{height:46px;width:auto;display:block}
+.nav-links{display:flex;gap:2px;margin-inline-start:auto;flex-wrap:wrap}
+.nav-links a{padding:9px 13px;font-family:var(--ff-head);font-weight:500;font-size:13.5px;color:var(--muted);
+  cursor:pointer;transition:.2s;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;border-radius:8px}
+html[lang="ar"] .nav-links a{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.nav-links a:hover{color:var(--ink);background:var(--bg2)}
+.nav-links a.active{color:var(--green-d);background:var(--green-tint)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.lang-btn{border:1px solid var(--line2);background:#fff;color:var(--ink);padding:9px 13px;cursor:pointer;
+  font-weight:700;font-size:13px;font-family:var(--ff-head);transition:.2s;letter-spacing:1px;border-radius:9px}
+.lang-btn:hover{border-color:var(--green);color:var(--green-d)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-family:var(--ff-head);font-weight:600;
+  font-size:14px;cursor:pointer;border:none;transition:.2s;text-transform:uppercase;letter-spacing:.8px;border-radius:11px}
+html[lang="ar"] .btn{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 10px 22px -10px rgba(26,143,60,.7)}
+.btn-green:hover{background:var(--green-d);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border:1px solid var(--line2);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green-d)}
+.btn-dark{background:var(--head);color:#fff}
+.btn-dark:hover{background:#000}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+/* ===== LAYOUT ===== */
+main{overflow:hidden}
+.wrap{max-width:1300px;margin:0 auto;padding:0 26px}
+.page{display:none;animation:fade .5s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+section{padding:80px 0}
+.tint{background:var(--bg2)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-head);font-weight:600;
+  font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--green-d);margin-bottom:18px}
+html[lang="ar"] .eyebrow{font-family:'Cairo',sans-serif;letter-spacing:1px;font-weight:700}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--green)}
+.h-sec{font-size:clamp(28px,4.4vw,50px);font-weight:700;letter-spacing:-.4px;margin-bottom:16px}
+.accent{color:var(--green)}
+.lead{color:var(--muted);font-size:18px;max-width:660px}
+.center{text-align:center}
+.center .lead{margin-inline:auto}
+.sec-head{margin-bottom:40px}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding-top:150px;padding-bottom:80px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;max-width:1300px;margin:0 auto;padding:0 26px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:var(--green-tint);color:var(--green-d);
+  padding:8px 16px;border-radius:100px;font-size:13.5px;font-weight:700;margin-bottom:24px;font-family:var(--ff-ar)}
+html[lang="en"] .hero-badge{font-family:var(--ff-en)}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(38px,5.6vw,68px);font-weight:700;letter-spacing:-1px;margin-bottom:22px;line-height:1.05}
+.hero .lead{font-size:19px;margin-bottom:28px}
+.hero-info{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:30px}
+.hero-info .cell .k{font-family:var(--ff-head);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);margin-bottom:3px}
+html[lang="ar"] .hero-info .cell .k{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
+.hero-info .cell .v{font-family:var(--ff-head);font-weight:600;font-size:17px;color:var(--head)}
+html[lang="ar"] .hero-info .cell .v{font-family:'Tajawal',sans-serif;font-weight:700}
+.hero-info .cell .v small{color:var(--green-d)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero-actions .btn{padding:15px 28px;font-size:15px}
+.hero-social{display:flex;align-items:center;gap:14px;margin-top:30px}
+.avatars{display:flex}
+.avatars img{width:42px;height:42px;border-radius:50%;border:3px solid #fff;object-fit:cover;margin-inline-start:-12px;background:var(--bg3)}
+.avatars img:first-child{margin-inline-start:0}
+.hero-social b{font-family:var(--ff-head);color:var(--head);font-weight:600}
+.hero-social span{font-size:13.5px;color:var(--muted)}
+
+/* hero visual panel */
+.hero-visual{position:relative;min-height:440px}
+.hv-panel{position:absolute;inset:0;background:linear-gradient(150deg,var(--green),var(--green-dd));border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.hv-panel .ring{position:absolute;inset-inline-end:-70px;bottom:-70px;width:340px;opacity:.22}
+.hv-panel .grid-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.5}
+.hv-card{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);padding:16px 18px}
+.hv-card.c1{top:34px;left:34px;right:34px}
+.hv-card.c1 .k{font-family:var(--ff-head);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);margin-bottom:8px}
+html[lang="ar"] .hv-card .k{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
+.hv-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.hv-row:first-of-type{border-top:none}
+.hv-row .t{font-family:var(--ff-head);font-weight:700;color:var(--green-d);font-size:14px;min-width:44px}
+.hv-row .d{font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.3}
+.hv-card.c2{bottom:30px;inset-inline-start:30px;display:flex;align-items:center;gap:12px}
+.hv-card.c2 img{width:46px;height:46px;border-radius:12px;object-fit:cover}
+.hv-card.c2 .n{font-family:var(--ff-head);font-weight:700;font-size:15px;color:var(--head)}
+.hv-card.c2 .r{font-size:12px;color:var(--muted)}
+.hv-card.c3{bottom:34px;inset-inline-end:26px;text-align:center;padding:14px 20px}
+.hv-card.c3 b{font-family:var(--ff-head);font-size:30px;color:var(--green);display:block;line-height:1}
+.hv-card.c3 span{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+html[lang="ar"] .hv-card.c3 span{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+
+/* countdown strip */
+.countdown{display:flex;gap:10px;margin-top:34px}
+.cd-box{text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:74px;box-shadow:var(--shadow)}
+.cd-box b{display:block;font-family:var(--ff-head);font-size:28px;font-weight:700;color:var(--head)}
+.cd-box span{font-family:var(--ff-head);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2)}
+html[lang="ar"] .cd-box span{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
+
+/* logos strip */
+.logos{display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;opacity:.75}
+.logos span{font-family:var(--ff-head);font-weight:700;font-size:20px;color:var(--muted2);letter-spacing:.5px;text-transform:uppercase}
+.logos-label{text-align:center;font-family:var(--ff-head);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:24px}
+html[lang="ar"] .logos-label{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
+
+/* grids/cards */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.25s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:#d3ecd9}
+.card .ic{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;background:var(--green-tint)}
+.card .ic svg{width:26px;height:26px;stroke:var(--green-d)}
+.card h3{font-size:20px;margin-bottom:9px}
+.card p{color:var(--muted);font-size:15px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.stat{text-align:center;padding:14px}
+.stat b{font-family:var(--ff-head);font-size:clamp(32px,4vw,52px);font-weight:700;color:var(--green);display:block;line-height:1}
+.stat span{font-family:var(--ff-head);font-weight:500;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+html[lang="ar"] .stat span{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+
+/* ecosystem */
+.eco{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.eco-node{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;cursor:pointer;transition:.25s;box-shadow:var(--shadow)}
+.eco-node:hover,.eco-node.on{border-color:var(--green);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.eco-node .n{font-family:var(--ff-head);font-size:13px;color:var(--green);font-weight:700}
+.eco-node h4{font-family:var(--ff-head);font-size:18px;margin:8px 0 6px;text-transform:none;color:var(--head)}
+.eco-node p{font-size:13.5px;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:.35s}
+.eco-node:hover p,.eco-node.on p{max-height:130px;opacity:1;margin-top:8px}
+
+/* persona */
+.persona .ph{height:150px;border-radius:12px;margin-bottom:18px;background-color:var(--green);background-image:linear-gradient(150deg,var(--green),var(--green-dd));background-size:cover;background-position:center;position:relative;overflow:hidden}
+.persona .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(14,92,37,.55))}
+.persona .tag{position:absolute;bottom:12px;inset-inline-start:14px;z-index:1;font-family:var(--ff-head);font-size:12px;color:#fff;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:rgba(0,0,0,.25);padding:5px 11px;border-radius:100px}
+html[lang="ar"] .persona .tag{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.persona ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.persona li{font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.persona li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--green);margin-top:7px;flex:none}
+
+/* program */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{padding:12px 20px;background:#fff;border:1px solid var(--line2);border-radius:11px;cursor:pointer;
+  font-family:var(--ff-head);font-weight:600;font-size:14px;transition:.2s;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+html[lang="ar"] .tab{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.tab.on{background:var(--green);color:#fff;border-color:var(--green)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{padding:8px 16px;background:#fff;border:1px solid var(--line2);border-radius:100px;cursor:pointer;font-size:13px;
+  transition:.2s;color:var(--muted);font-family:var(--ff-head);font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+html[lang="ar"] .filter{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.filter.on{border-color:var(--green);color:var(--green-d);background:var(--green-tint)}
+.session{display:grid;grid-template-columns:120px 1fr auto;gap:22px;align-items:center;padding:20px 24px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;transition:.2s;box-shadow:var(--shadow)}
+.session:hover{box-shadow:var(--shadow-lg);border-color:#d3ecd9}
+.session .time{font-family:var(--ff-head);font-size:19px;font-weight:700;color:var(--green-d)}
+.session .time small{display:block;color:var(--muted2);font-size:11px;letter-spacing:1px}
+.session h4{font-family:var(--ff-head);font-size:17px;margin-bottom:4px;text-transform:none}
+html[lang="ar"] .session h4{font-family:'Tajawal',sans-serif;font-weight:700}
+.session .who{font-size:13.5px;color:var(--muted)}
+.track-badge{font-family:var(--ff-head);font-size:11px;padding:6px 12px;border-radius:100px;font-weight:600;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px}
+html[lang="ar"] .track-badge{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.t-clinical{background:var(--green-tint);color:var(--green-d)}
+.t-digital{background:#e8f0fb;color:#2f6fd0}
+.t-business{background:#fdf2e3;color:#c07d1a}
+.t-research{background:#f2eafb;color:#7d4bc0}
+
+/* speakers */
+.spk{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:.25s;box-shadow:var(--shadow)}
+.spk:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.spk .ph{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--bg3)}
+.spk .meta{padding:16px 18px}
+.spk .meta .flag{float:inline-end;font-size:16px}
+.spk h4{font-family:var(--ff-head);font-size:16.5px;margin-bottom:3px;text-transform:none}
+html[lang="ar"] .spk h4{font-family:'Tajawal',sans-serif;font-weight:700}
+.spk span{font-size:13px;color:var(--muted)}
+
+/* testimonials */
+.quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.quote .stars{color:#f0a500;font-size:15px;letter-spacing:2px;margin-bottom:12px}
+.quote p{font-size:15.5px;color:var(--ink);line-height:1.7;flex:1}
+.quote .by{display:flex;align-items:center;gap:12px;margin-top:20px}
+.quote .by img{width:46px;height:46px;border-radius:50%;object-fit:cover;background:var(--bg3)}
+.quote .by b{font-family:var(--ff-head);font-weight:700;font-size:15px;color:var(--head);display:block}
+.quote .by span{font-size:12.5px;color:var(--muted)}
+
+/* sponsors */
+.spon-tier{font-family:var(--ff-head);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);text-align:center;margin:30px 0 16px}
+html[lang="ar"] .spon-tier{font-family:'Tajawal',sans-serif;letter-spacing:0;font-weight:700}
+.spon-grid{display:grid;gap:16px}
+.spon{background:#fff;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;min-height:96px;transition:.2s}
+.spon:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.spon b{font-family:var(--ff-head);font-weight:700;font-size:20px;color:var(--charcoal);letter-spacing:.5px;text-transform:uppercase}
+.spon.plat{min-height:120px}
+.spon.plat b{font-size:26px}
+
+/* floorplan */
+.floor{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+.hall{position:relative;height:380px;border-radius:12px;background:var(--bg2);
+  background-image:repeating-linear-gradient(90deg,transparent,transparent 41px,var(--line) 42px),repeating-linear-gradient(0deg,transparent,transparent 41px,var(--line) 42px);border:1px solid var(--line2)}
+.booth{position:absolute;display:grid;place-items:center;cursor:pointer;transition:.15s;font-family:var(--ff-head);
+  font-size:12px;font-weight:700;text-align:center;padding:4px;border-radius:6px}
+.booth:hover{outline:2px solid var(--head);z-index:3;transform:scale(1.03)}
+.booth.premium{background:var(--green);color:#fff}
+.booth.std{background:#dfe7ee;color:#3a4a5a}
+.booth.startup{background:#fff;border:1px dashed var(--green);color:var(--green-d)}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:var(--muted);font-family:var(--ff-head)}
+html[lang="ar"] .legend{font-family:'Tajawal',sans-serif}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-inline-end:8px;vertical-align:-2px}
+
+/* journey */
+.journey{margin-top:34px;padding-inline-start:28px;position:relative;max-width:720px}
+.journey::before{content:"";position:absolute;inset-inline-start:7px;top:6px;bottom:6px;width:2px;background:var(--line2)}
+.jstep{position:relative;padding-bottom:30px}
+.jstep::before{content:"";position:absolute;inset-inline-start:-25px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--green)}
+.jstep h4{font-family:var(--ff-head);font-size:18px;margin-bottom:5px;text-transform:none;color:var(--head)}
+html[lang="ar"] .jstep h4{font-family:'Cairo',sans-serif}
+.jstep p{color:var(--muted);font-size:14.5px}
+
+/* CTA band */
+.band{background:linear-gradient(135deg,var(--green),var(--green-dd));border-radius:26px;padding:64px 50px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.band .ring{position:absolute;inset-inline-end:-60px;top:-60px;width:280px;opacity:.2}
+.band h2{color:#fff;font-size:clamp(28px,4vw,44px);margin-bottom:14px;position:relative}
+.band p{color:rgba(255,255,255,.9);font-size:18px;max-width:620px;margin:0 auto 26px;position:relative}
+.band .hero-actions{justify-content:center;position:relative}
+.band .btn-ghost{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);color:#fff}
+.band .btn-ghost:hover{background:rgba(255,255,255,.24);color:#fff}
+
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px;position:relative;transition:.2s;box-shadow:var(--shadow)}
+.tier.feat{border-color:var(--green);box-shadow:var(--shadow-lg);transform:scale(1.02)}
+.tier .rt{position:absolute;top:-13px;inset-inline-start:50%;transform:translateX(-50%);background:var(--green);color:#fff;
+  font-family:var(--ff-head);font-size:11px;font-weight:600;padding:6px 16px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+html[lang="ar"] .tier .rt{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.tier h3{font-size:22px;text-transform:none}
+.tier .price{font-family:var(--ff-head);font-size:40px;font-weight:700;margin:12px 0;color:var(--head)}
+.tier .price small{font-size:14px;color:var(--muted);font-weight:400}
+.tier ul{list-style:none;margin:20px 0;display:flex;flex-direction:column;gap:12px}
+.tier li{font-size:14px;color:var(--muted);display:flex;gap:10px}
+.tier li::before{content:"✓";color:var(--green);font-weight:800}
+.tier .btn{width:100%;justify-content:center;margin-top:8px}
+
+/* form */
+.form-wrap{max-width:660px;margin-inline:auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px;box-shadow:var(--shadow)}
+.steps-ind{display:flex;gap:6px;margin-bottom:28px}
+.steps-ind .s{flex:1;height:5px;border-radius:100px;background:var(--line2);transition:.3s}
+.steps-ind .s.on{background:var(--green)}
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--ff-head);font-size:12px;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+html[lang="ar"] .field label{font-family:'Tajawal',sans-serif;text-transform:none;font-weight:700}
+.field input,.field select{width:100%;padding:13px 15px;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--ink);font-family:inherit;font-size:14.5px;transition:.2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green);background:#fff}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{padding:14px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2);cursor:pointer;transition:.2s;font-size:14px}
+.opt:hover,.opt.on{border-color:var(--green);background:var(--green-tint);color:var(--green-d)}
+.form-nav{display:flex;justify-content:space-between;margin-top:26px;gap:12px}
+.done-msg{text-align:center;padding:20px}
+.done-msg .big{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:32px;margin:0 auto 12px}
+
+/* accordion */
+.acc{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.acc-q{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--ff-head);font-weight:600;font-size:16px;color:var(--head)}
+html[lang="ar"] .acc-q{font-family:'Cairo',sans-serif}
+.acc-q .pm{color:var(--green);font-size:22px;transition:.3s}
+.acc.open .pm{transform:rotate(45deg)}
+.acc-a{max-height:0;overflow:hidden;transition:.35s;color:var(--muted);font-size:14.5px}
+.acc.open .acc-a{max-height:240px}
+.acc-a p{padding:0 24px 22px}
+
+/* footer */
+footer{background:var(--head);color:#cfd7de;padding:60px 26px 30px}
+.foot-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px}
+.foot-inner img{height:54px;width:auto;margin-bottom:14px}
+.foot-lockup{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}
+.foot-lockup .ll-ar{font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;color:var(--green-bright,#22a94b)}
+.foot-lockup .ll-en{font-family:'Oswald',sans-serif;font-weight:600;font-size:10px;letter-spacing:2px;color:#8f9aa4}
+.foot-inner h5{font-family:var(--ff-head);font-size:12px;margin-bottom:16px;color:#fff;letter-spacing:2px;text-transform:uppercase}
+html[lang="ar"] .foot-inner h5{font-family:'Cairo',sans-serif;letter-spacing:0}
+.foot-inner a{display:block;color:#aab4bd;font-size:14px;padding:5px 0;cursor:pointer;transition:.2s}
+.foot-inner a:hover{color:#fff}
+.foot-inner p{color:#9aa5ae;font-size:14px;max-width:300px}
+.foot-bottom{max-width:1300px;margin:34px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#8792a0;font-size:12.5px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,30,25,.55);backdrop-filter:blur(4px)}
+.modal.on{display:flex}
+.modal-box{max-width:520px;width:100%;background:#fff;border-radius:20px;padding:34px;position:relative;box-shadow:var(--shadow-lg)}
+.modal-close{position:absolute;top:16px;inset-inline-end:16px;background:var(--bg2);border:1px solid var(--line);width:36px;height:36px;border-radius:10px;color:var(--ink);cursor:pointer;font-size:16px}
+.mk{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+.mk img{width:80px;height:80px;border-radius:16px;object-fit:cover;background:var(--bg3)}
+.mk h3{text-transform:none}
+
+.notice{background:var(--green-tint);border:1px solid #cdead6;border-inline-start:4px solid var(--green);border-radius:10px;padding:16px 20px;font-size:14px;color:var(--green-dd);margin-bottom:20px}
+
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{min-height:400px}
+}
+@media(max-width:960px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .g3,.g4,.eco,.tiers,.stats,.opt-grid{grid-template-columns:1fr 1fr}
+  .foot-inner{grid-template-columns:1fr 1fr}
+  .session{grid-template-columns:1fr;gap:8px}
+  .nav-links.open{display:flex;position:absolute;top:64px;inset-inline-end:20px;flex-direction:column;background:#fff;padding:10px;border:1px solid var(--line);border-radius:14px;min-width:210px;box-shadow:var(--shadow-lg)}
+}
+@media(max-width:620px){
+  .g2,.g3,.g4,.eco,.tiers,.stats,.opt-grid,.spon-grid{grid-template-columns:1fr!important}
+  section{padding:56px 0}
+  .band{padding:44px 24px}
+  .hero-info{gap:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand" onclick="go('home')"><img class="brand-mark" src="idce-logo.svg" alt="IDCE — المؤتمر والمعرض الدولي لطب الأسنان"></div>
+    <nav class="nav-links" id="navLinks">
+      <a onclick="go('home')" data-nav="home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a onclick="go('program')" data-nav="program" data-ar="البرنامج" data-en="Program">البرنامج</a>
+      <a onclick="go('speakers')" data-nav="speakers" data-ar="المتحدثون" data-en="Speakers">المتحدثون</a>
+      <a onclick="go('exhibition')" data-nav="exhibition" data-ar="المعرض" data-en="Exhibition">المعرض</a>
+      <a onclick="go('academy')" data-nav="academy" data-ar="الأكاديمية" data-en="Academy">الأكاديمية</a>
+      <a onclick="go('business')" data-nav="business" data-ar="الأعمال" data-en="Business">الأعمال</a>
+      <a onclick="go('awards')" data-nav="awards" data-ar="الجوائز" data-en="Awards">الجوائز</a>
+      <a onclick="go('media')" data-nav="media" data-ar="الإعلام" data-en="Media">الإعلام</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+      <button class="btn btn-green" onclick="go('register')" data-ar="سجّل الآن" data-en="Register">سجّل الآن</button>
+      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ==================================================== HOME -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><span class="dot"></span><span data-ar="تحت رعاية الجمعية السعودية لطب الأسنان" data-en="Under the patronage of the Saudi Dental Society">تحت رعاية الجمعية السعودية لطب الأسنان</span></div>
+        <h1 data-ar="المؤتمر والمعرض الدولي <span class='accent'>لطب الأسنان</span>" data-en="The International Dental <span class='accent'>Conference & Exhibition</span>">المؤتمر والمعرض الدولي <span class="accent">لطب الأسنان</span></h1>
+        <p class="lead" data-ar="منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة." data-en="A Saudi year-round professional ecosystem — science, innovation, research and business under one brand, in the heart of Jeddah.">منظومة مهنية سعودية تعمل طوال العام — علم وابتكار وأبحاث وشراكات أعمال تحت هوية واحدة، في قلب جدة.</p>
+        <div class="hero-info">
+          <div class="cell"><div class="k" data-ar="التاريخ" data-en="Dates">التاريخ</div><div class="v" data-ar="02 – 04 أكتوبر" data-en="02 – 04 October">02 – 04 أكتوبر</div></div>
+          <div class="cell"><div class="k" data-ar="المكان" data-en="Venue">المكان</div><div class="v">The Ritz-Carlton</div></div>
+          <div class="cell"><div class="k" data-ar="المدينة" data-en="City">المدينة</div><div class="v" data-ar="جدة · السعودية" data-en="Jeddah · KSA">جدة · السعودية</div></div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-green" onclick="go('register')" data-ar="احجز مقعدك" data-en="Secure your seat">احجز مقعدك</button>
+          <button class="btn btn-ghost" onclick="go('program')" data-ar="استعرض البرنامج" data-en="Explore program">استعرض البرنامج</button>
+        </div>
+        <div class="hero-social">
+          <div class="avatars">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+          </div>
+          <div><b>+120</b> <span data-ar="متحدث دولي من 45 دولة" data-en="global speakers from 45 countries">متحدث دولي من 45 دولة</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hv-panel">
+          <div class="grid-dots"></div>
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="none" stroke="#fff" stroke-width="10" stroke-dasharray="168 71" transform="rotate(40 50 50)"/></svg>
+        </div>
+        <div class="hv-card c1">
+          <div class="k" data-ar="جدولك الذكي · اليوم 1" data-en="Your smart agenda · Day 1">جدولك الذكي · اليوم 1</div>
+          <div class="hv-row"><span class="t">09:00</span><span class="d" data-ar="الجلسة الافتتاحية الرئيسية" data-en="Opening keynote">الجلسة الافتتاحية الرئيسية</span></div>
+          <div class="hv-row"><span class="t">10:30</span><span class="d" data-ar="الزراعة الموجّهة رقمياً" data-en="Guided digital implants">الزراعة الموجّهة رقمياً</span></div>
+          <div class="hv-row"><span class="t">12:00</span><span class="d" data-ar="الذكاء الاصطناعي في الابتسامة" data-en="AI in smile design">الذكاء الاصطناعي في الابتسامة</span></div>
+        </div>
+        <div class="hv-card c2">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+          <div><span class="n">Dr. Abdullah Al-Harbi</span><span class="r" data-ar="استشاري زراعة" data-en="Implant Consultant">استشاري زراعة</span></div>
+        </div>
+        <div class="hv-card c3"><b data-count="240">0</b><span data-ar="عارض" data-en="Exhibitors">عارض</span></div>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:70px">
+      <div class="countdown" id="countdown" style="justify-content:flex-start"></div>
+    </div>
+  </section>
+
+  <!-- logos strip -->
+  <section class="tint" style="padding:44px 0">
+    <div class="wrap">
+      <div class="logos-label" data-ar="بثقة أبرز العلامات في طب الأسنان" data-en="Trusted by leading dental brands">بثقة أبرز العلامات في طب الأسنان</div>
+      <div class="logos"><span>DentTech</span><span>OraCloud</span><span>ImplantPro</span><span>ClearAlign</span><span>ScanX</span><span>BioDent</span></div>
+    </div>
+  </section>
+
+  <!-- stats -->
+  <section><div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b data-count="12000">0</b><span data-ar="زائر متوقع" data-en="Visitors">زائر متوقع</span></div>
+      <div class="stat"><b data-count="120">0</b><span data-ar="متحدث" data-en="Speakers">متحدث</span></div>
+      <div class="stat"><b data-count="240">0</b><span data-ar="عارض" data-en="Exhibitors">عارض</span></div>
+      <div class="stat"><b data-count="80">0</b><span data-ar="ورشة عمل" data-en="Workshops">ورشة عمل</span></div>
+      <div class="stat"><b data-count="45">0</b><span data-ar="دولة" data-en="Countries">دولة</span></div>
+    </div>
+  </div></section>
+
+  <!-- ecosystem -->
+  <section class="tint"><div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-ar="بنية العلامة" data-en="Brand Architecture">بنية العلامة</div>
+      <h2 class="h-sec" data-ar="لا نبني حدثاً — نبني <span class='accent'>منظومة</span>" data-en="We don't build an event — we build an <span class='accent'>ecosystem</span>">لا نبني حدثاً — نبني <span class="accent">منظومة</span></h2>
+      <p class="lead" data-ar="تسع منصات مترابطة تحت مظلة IDCE تجعل المؤتمر يعمل طوال العام بدل أن يبدأ من الصفر كل نسخة." data-en="Nine connected platforms under IDCE — making the conference work all year instead of restarting each edition.">تسع منصات مترابطة تحت مظلة IDCE تجعل المؤتمر يعمل طوال العام بدل أن يبدأ من الصفر كل نسخة.</p>
+    </div>
+    <div class="eco reveal">
+      <div class="eco-node on"><div class="n">01</div><h4>IDCE Conference</h4><p data-ar="المحتوى العلمي والجلسات الرئيسية والمسارات المتخصصة." data-en="Scientific content, keynotes and specialized tracks.">المحتوى العلمي والجلسات الرئيسية والمسارات المتخصصة.</p></div>
+      <div class="eco-node"><div class="n">02</div><h4>IDCE Expo</h4><p data-ar="معرض تجاري دولي لأحدث الأجهزة والتقنيات والمواد." data-en="An international trade show of the latest devices and materials.">معرض تجاري دولي لأحدث الأجهزة والتقنيات والمواد.</p></div>
+      <div class="eco-node"><div class="n">03</div><h4>IDCE Academy</h4><p data-ar="تعليم مستمر وشهادات معتمدة على مدار السنة." data-en="Year-round continuing education and accredited certificates.">تعليم مستمر وشهادات معتمدة على مدار السنة.</p></div>
+      <div class="eco-node"><div class="n">04</div><h4>Innovation Hub</h4><p data-ar="منصة للشركات الناشئة وحلول الذكاء الاصطناعي في طب الأسنان." data-en="A stage for startups and AI-driven dental solutions.">منصة للشركات الناشئة وحلول الذكاء الاصطناعي في طب الأسنان.</p></div>
+      <div class="eco-node"><div class="n">05</div><h4>Research Forum</h4><p data-ar="أبحاث محكّمة وملصقات علمية ومجلة دورية." data-en="Peer-reviewed research, scientific posters and a journal.">أبحاث محكّمة وملصقات علمية ومجلة دورية.</p></div>
+      <div class="eco-node"><div class="n">06</div><h4>Business Connect</h4><p data-ar="مطابقة أعمال ذكية ولقاءات B2B بين العارضين والمشترين." data-en="Smart business matching and B2B meetings.">مطابقة أعمال ذكية ولقاءات B2B بين العارضين والمشترين.</p></div>
+      <div class="eco-node"><div class="n">07</div><h4>IDCE Awards</h4><p data-ar="تكريم التميّز في الممارسة والبحث والابتكار." data-en="Honoring excellence in practice, research and innovation.">تكريم التميّز في الممارسة والبحث والابتكار.</p></div>
+      <div class="eco-node"><div class="n">08</div><h4>IDCE Media</h4><p data-ar="بودكاست ونشرة ومحتوى قيادة فكرية طوال العام." data-en="Podcast, newsletter and thought-leadership content.">بودكاست ونشرة ومحتوى قيادة فكرية طوال العام.</p></div>
+      <div class="eco-node"><div class="n">09</div><h4>IDCE Community</h4><p data-ar="عضوية ومجتمع مهني مستمر يربط أطباء الأسنان في المنطقة." data-en="Membership and an ongoing professional community.">عضوية ومجتمع مهني مستمر يربط أطباء الأسنان في المنطقة.</p></div>
+    </div>
+  </div></section>
+
+  <!-- personas -->
+  <section><div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-ar="لماذا تحضر" data-en="Why Attend">لماذا تحضر</div>
+      <h2 class="h-sec" data-ar="تجربة مصممة <span class='accent'>لكل جمهور</span>" data-en="Built for <span class='accent'>every audience</span>">تجربة مصممة <span class="accent">لكل جمهور</span></h2>
+    </div>
+    <div class="grid g4 reveal">
+      <div class="card persona"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop')"><span class="tag" data-ar="للأطباء" data-en="Dentists">للأطباء</span></div><h3 data-ar="طبيب أسنان" data-en="Dentist">طبيب أسنان</h3><ul>
+        <li data-ar="ساعات تعليم معتمدة CME" data-en="Accredited CME hours">ساعات تعليم معتمدة CME</li>
+        <li data-ar="ورش عملية Hands-on" data-en="Hands-on workshops">ورش عملية Hands-on</li>
+        <li data-ar="أحدث البروتوكولات السريرية" data-en="Latest clinical protocols">أحدث البروتوكولات السريرية</li></ul></div>
+      <div class="card persona"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop')"><span class="tag" data-ar="للطلاب" data-en="Students">للطلاب</span></div><h3 data-ar="طالب / خريج" data-en="Student / Grad">طالب / خريج</h3><ul>
+        <li data-ar="تذاكر مخفّضة للطلاب" data-en="Discounted student passes">تذاكر مخفّضة للطلاب</li>
+        <li data-ar="مسابقة الأبحاث والملصقات" data-en="Research & poster contest">مسابقة الأبحاث والملصقات</li>
+        <li data-ar="بوابة التوظيف والتدريب" data-en="Careers & internship hub">بوابة التوظيف والتدريب</li></ul></div>
+      <div class="card persona"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1587840171670-8b850147754f?q=80&w=600&auto=format&fit=crop')"><span class="tag" data-ar="للعارضين" data-en="Exhibitors">للعارضين</span></div><h3 data-ar="شركة / عارض" data-en="Brand / Exhibitor">شركة / عارض</h3><ul>
+        <li data-ar="12,000 زائر مؤهّل" data-en="12,000 qualified visitors">12,000 زائر مؤهّل</li>
+        <li data-ar="مطابقة أعمال ذكية" data-en="Smart lead matching">مطابقة أعمال ذكية</li>
+        <li data-ar="ماسح العملاء المحتملين" data-en="Lead scanner app">ماسح العملاء المحتملين</li></ul></div>
+      <div class="card persona"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=600&auto=format&fit=crop')"><span class="tag" data-ar="للباحثين" data-en="Researchers">للباحثين</span></div><h3 data-ar="باحث / أكاديمي" data-en="Researcher">باحث / أكاديمي</h3><ul>
+        <li data-ar="نشر في مجلة IDCE" data-en="Publish in IDCE journal">نشر في مجلة IDCE</li>
+        <li data-ar="جلسات تقديم الأبحاث" data-en="Oral presentation slots">جلسات تقديم الأبحاث</li>
+        <li data-ar="شبكة تعاون بحثي" data-en="Research network">شبكة تعاون بحثي</li></ul></div>
+    </div>
+  </div></section>
+
+  <!-- program preview -->
+  <section class="tint"><div class="wrap">
+    <div class="sec-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:30px">
+      <div><div class="eyebrow" data-ar="البرنامج" data-en="Program">البرنامج</div>
+      <h2 class="h-sec" style="margin:0" data-ar="ثلاثة أيام · <span class='accent'>أربعة مسارات</span>" data-en="Three days · <span class='accent'>four tracks</span>">ثلاثة أيام · <span class="accent">أربعة مسارات</span></h2></div>
+      <button class="btn btn-ghost" onclick="go('program')" data-ar="الجدول الكامل" data-en="Full agenda">الجدول الكامل</button>
+    </div>
+    <div class="grid g4 reveal">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div><h3 data-ar="سريري" data-en="Clinical">سريري</h3><p data-ar="زراعة، تقويم، لبّ، وجراحة فم متقدمة." data-en="Implants, ortho, endo and advanced oral surgery.">زراعة، تقويم، لبّ، وجراحة فم متقدمة.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M8 20h8"/></svg></div><h3 data-ar="رقمي" data-en="Digital">رقمي</h3><p data-ar="CAD/CAM، المسح الرقمي والذكاء الاصطناعي." data-en="CAD/CAM, intraoral scanning and AI.">CAD/CAM، المسح الرقمي والذكاء الاصطناعي.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h3 data-ar="أعمال العيادات" data-en="Practice">أعمال العيادات</h3><p data-ar="إدارة العيادة والتسويق الطبي والاستدامة." data-en="Clinic management, marketing and growth.">إدارة العيادة والتسويق الطبي والاستدامة.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><h3 data-ar="بحثي" data-en="Research">بحثي</h3><p data-ar="جلسات علمية وملصقات ومنتدى المبتكرين." data-en="Scientific sessions, posters and innovators.">جلسات علمية وملصقات ومنتدى المبتكرين.</p></div>
+    </div>
+  </div></section>
+
+  <!-- speakers preview -->
+  <section><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow" data-ar="المتحدثون" data-en="Speakers">المتحدثون</div>
+    <h2 class="h-sec" data-ar="نخبة من <span class='accent'>قادة المهنة</span>" data-en="A lineup of <span class='accent'>global leaders</span>">نخبة من <span class="accent">قادة المهنة</span></h2></div>
+    <div class="grid g4 reveal" id="spkPreview"></div>
+    <div style="margin-top:30px"><button class="btn btn-ghost" onclick="go('speakers')" data-ar="كل المتحدثين" data-en="All speakers">كل المتحدثين</button></div>
+  </div></section>
+
+  <!-- testimonials -->
+  <section class="tint"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow" data-ar="آراء الحضور" data-en="Testimonials">آراء الحضور</div>
+    <h2 class="h-sec" data-ar="ماذا قال <span class='accent'>المشاركون</span>" data-en="What attendees <span class='accent'>say</span>">ماذا قال <span class="accent">المشاركون</span></h2></div>
+    <div class="grid g3 reveal">
+      <div class="quote"><div class="stars">★★★★★</div><p data-ar="«أفضل مؤتمر أسنان حضرته في المنطقة — الجلسات عملية والمعرض ربطني بشركاء أعمال حقيقيين خلال يومين فقط.»" data-en="“The best dental conference I've attended in the region — practical sessions, and the expo connected me with real business partners in two days.”">«أفضل مؤتمر أسنان حضرته في المنطقة — الجلسات عملية والمعرض ربطني بشركاء أعمال حقيقيين خلال يومين فقط.»</p><div class="by"><img src="https://randomuser.me/api/portraits/women/57.jpg" alt=""><div><b>Dr. Fatimah Al-Zahrani</b><span data-ar="مالكة عيادة · الرياض" data-en="Clinic owner · Riyadh">مالكة عيادة · الرياض</span></div></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p data-ar="«المطابقة الذكية للأعمال وفّرت علينا شهوراً من التواصل. عدنا من جدة بثلاث صفقات موقّعة.»" data-en="“The smart business matching saved us months of outreach. We left Jeddah with three signed deals.”">«المطابقة الذكية للأعمال وفّرت علينا شهوراً من التواصل. عدنا من جدة بثلاث صفقات موقّعة.»</p><div class="by"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt=""><div><b>Marco Rossi</b><span data-ar="مدير إقليمي · عارض" data-en="Regional Director · Exhibitor">مدير إقليمي · عارض</span></div></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p data-ar="«كطالبة، منحتني مسابقة الأبحاث فرصة لعرض عملي أمام خبراء عالميين — تجربة غيّرت مساري.»" data-en="“As a student, the research contest gave me a stage in front of global experts — it changed my path.”">«كطالبة، منحتني مسابقة الأبحاث فرصة لعرض عملي أمام خبراء عالميين — تجربة غيّرت مساري.»</p><div class="by"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt=""><div><b>Lina Chen</b><span data-ar="باحثة · خريجة" data-en="Researcher · Graduate">باحثة · خريجة</span></div></div></div>
+    </div>
+  </div></section>
+
+  <!-- sponsors -->
+  <section><div class="wrap">
+    <div class="center sec-head reveal"><div class="eyebrow" style="justify-content:center" data-ar="الرعاة" data-en="Sponsors">الرعاة</div>
+    <h2 class="h-sec" data-ar="شركاء <span class='accent'>النجاح</span>" data-en="Our <span class='accent'>partners</span>">شركاء <span class="accent">النجاح</span></h2></div>
+    <div class="spon-tier reveal" data-ar="الرعاة البلاتينيون" data-en="Platinum sponsors">الرعاة البلاتينيون</div>
+    <div class="spon-grid reveal" style="grid-template-columns:repeat(3,1fr)">
+      <div class="spon plat"><b>DentTech</b></div><div class="spon plat"><b>OraCloud</b></div><div class="spon plat"><b>ImplantPro</b></div>
+    </div>
+    <div class="spon-tier reveal" data-ar="الرعاة الذهبيون" data-en="Gold sponsors">الرعاة الذهبيون</div>
+    <div class="spon-grid reveal" style="grid-template-columns:repeat(4,1fr)">
+      <div class="spon"><b>ClearAlign</b></div><div class="spon"><b>ScanX</b></div><div class="spon"><b>BioDent</b></div><div class="spon"><b>MedGulf</b></div>
+      <div class="spon"><b>SmileAI</b></div><div class="spon"><b>DentaLab</b></div><div class="spon"><b>NovaCeram</b></div><div class="spon"><b>PerioPlus</b></div>
+    </div>
+  </div></section>
+
+  <!-- CTA band -->
+  <section><div class="wrap">
+    <div class="band reveal">
+      <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="none" stroke="#fff" stroke-width="10" stroke-dasharray="168 71" transform="rotate(40 50 50)"/></svg>
+      <h2 data-ar="مقاعد النسخة القادمة محدودة" data-en="Seats for the next edition are limited">مقاعد النسخة القادمة محدودة</h2>
+      <p data-ar="انضم إلى 12,000 مختص من 45 دولة. سجّل مبكراً ووفّر حتى 30%." data-en="Join 12,000 professionals from 45 countries. Register early and save up to 30%.">انضم إلى 12,000 مختص من 45 دولة. سجّل مبكراً ووفّر حتى 30%.</p>
+      <div class="hero-actions">
+        <button class="btn btn-dark" onclick="go('register')" data-ar="سجّل الآن" data-en="Register now">سجّل الآن</button>
+        <button class="btn btn-ghost" onclick="go('business')" data-ar="كن عارضاً" data-en="Become an exhibitor">كن عارضاً</button>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ==================================================== PROGRAM -->
+<div class="page" id="page-program"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="جدول الأعمال" data-en="Agenda">جدول الأعمال</div>
+  <h1 class="h-sec" data-ar="البرنامج <span class='accent'>العلمي التفاعلي</span>" data-en="The <span class='accent'>interactive</span> program">البرنامج <span class="accent">العلمي التفاعلي</span></h1>
+  <p class="lead" data-ar="اختر اليوم وصفِّ الجلسات حسب المسار الذي يهمك — جدولك الذكي يُبنى تلقائياً." data-en="Pick a day and filter by the track you care about — your smart agenda builds itself.">اختر اليوم وصفِّ الجلسات حسب المسار الذي يهمك — جدولك الذكي يُبنى تلقائياً.</p></div>
+  <div class="tabs" id="dayTabs">
+    <button class="tab on" data-day="1"><span data-ar="اليوم 1" data-en="Day 1">اليوم 1</span> · 02.10</button>
+    <button class="tab" data-day="2"><span data-ar="اليوم 2" data-en="Day 2">اليوم 2</span> · 03.10</button>
+    <button class="tab" data-day="3"><span data-ar="اليوم 3" data-en="Day 3">اليوم 3</span> · 04.10</button>
+  </div>
+  <div class="filters" id="trackFilters">
+    <button class="filter on" data-track="all" data-ar="الكل" data-en="All">الكل</button>
+    <button class="filter" data-track="clinical" data-ar="سريري" data-en="Clinical">سريري</button>
+    <button class="filter" data-track="digital" data-ar="رقمي" data-en="Digital">رقمي</button>
+    <button class="filter" data-track="business" data-ar="أعمال" data-en="Business">أعمال</button>
+    <button class="filter" data-track="research" data-ar="بحثي" data-en="Research">بحثي</button>
+  </div>
+  <div id="sessionList"></div>
+</section></div></div>
+
+<!-- ==================================================== SPEAKERS -->
+<div class="page" id="page-speakers"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="المتحدثون" data-en="Speakers">المتحدثون</div>
+  <h1 class="h-sec" data-ar="أكثر من <span class='accent'>120 متحدثاً</span>" data-en="More than <span class='accent'>120 speakers</span>">أكثر من <span class="accent">120 متحدثاً</span></h1>
+  <p class="lead" data-ar="اضغط على أي متحدث لعرض نبذته وجلسته." data-en="Click any speaker to view their bio and session.">اضغط على أي متحدث لعرض نبذته وجلسته.</p></div>
+  <div class="grid g4" id="spkFull"></div>
+</section></div></div>
+
+<!-- ==================================================== EXHIBITION -->
+<div class="page" id="page-exhibition"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="المعرض" data-en="Exhibition">المعرض</div>
+  <h1 class="h-sec" data-ar="مخطّط أرضي <span class='accent'>تفاعلي</span>" data-en="An <span class='accent'>interactive</span> floorplan">مخطّط أرضي <span class="accent">تفاعلي</span></h1>
+  <p class="lead" data-ar="مرّر فوق أي جناح لعرض تفاصيله — اختر موقعك قبل أن يُحجز." data-en="Hover any booth to see details — pick your spot before it's gone.">مرّر فوق أي جناح لعرض تفاصيله — اختر موقعك قبل أن يُحجز.</p></div>
+  <div class="floor reveal">
+    <div class="hall" id="hall"></div>
+    <div class="legend">
+      <span><i style="background:var(--green)"></i><span data-ar="جناح مميّز" data-en="Premium booth">جناح مميّز</span></span>
+      <span><i style="background:#dfe7ee"></i><span data-ar="جناح قياسي" data-en="Standard booth">جناح قياسي</span></span>
+      <span><i style="border:1px dashed var(--green)"></i><span data-ar="منطقة الشركات الناشئة" data-en="Startup zone">منطقة الشركات الناشئة</span></span>
+    </div>
+  </div>
+  <div class="notice" style="margin-top:24px" id="boothInfo" data-ar="مرّر فوق جناح لعرض المعلومات هنا." data-en="Hover a booth to see its info here.">مرّر فوق جناح لعرض المعلومات هنا.</div>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-ar="6 قاعات معرض" data-en="6 exhibition halls">6 قاعات معرض</h3><p data-ar="أكثر من 18,000 م² من مساحات العرض." data-en="Over 18,000 m² of exhibition space.">أكثر من 18,000 م² من مساحات العرض.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3 data-ar="ماسح ذكي للعملاء" data-en="Smart lead scanner">ماسح ذكي للعملاء</h3><p data-ar="التقط بيانات الزوار المؤهلين لحظياً." data-en="Capture qualified visitor data instantly.">التقط بيانات الزوار المؤهلين لحظياً.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/></svg></div><h3 data-ar="مطابقة أعمال" data-en="Business matching">مطابقة أعمال</h3><p data-ar="نربطك بالمشترين المناسبين قبل الحدث." data-en="We connect you to the right buyers pre-event.">نربطك بالمشترين المناسبين قبل الحدث.</p></div>
+  </div>
+  <div style="margin-top:30px"><button class="btn btn-green" onclick="go('business')" data-ar="احجز جناحك" data-en="Book your booth">احجز جناحك</button></div>
+</section></div></div>
+
+<!-- ==================================================== ACADEMY -->
+<div class="page" id="page-academy"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="التعليم المستمر" data-en="Education">التعليم المستمر</div>
+  <h1 class="h-sec">IDCE <span class="accent">Academy</span></h1>
+  <p class="lead" data-ar="التعليم لا يتوقف بانتهاء المؤتمر — مكتبة معرفية وشهادات معتمدة تعمل طوال العام." data-en="Learning doesn't stop when the conference ends — a knowledge library and accredited certificates, all year.">التعليم لا يتوقف بانتهاء المؤتمر — مكتبة معرفية وشهادات معتمدة تعمل طوال العام.</p></div>
+  <div class="grid g3 reveal">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><h3 data-ar="ورش عملية معتمدة" data-en="Accredited workshops">ورش عملية معتمدة</h3><p data-ar="80+ ورشة Hands-on بساعات CME موثّقة." data-en="80+ hands-on workshops with verified CME hours.">80+ ورشة Hands-on بساعات CME موثّقة.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 3v4M8 3v4"/></svg></div><h3 data-ar="مكتبة رقمية" data-en="On-demand library">مكتبة رقمية</h3><p data-ar="سجّل الجلسات وشاهدها لاحقاً في أي وقت." data-en="Record sessions and rewatch anytime.">سجّل الجلسات وشاهدها لاحقاً في أي وقت.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3 data-ar="شهادات رقمية" data-en="Digital badges">شهادات رقمية</h3><p data-ar="شهادة رقمية قابلة للتحقق تُضاف لملفك المهني." data-en="A verifiable digital badge added to your profile.">شهادة رقمية قابلة للتحقق تُضاف لملفك المهني.</p></div>
+  </div>
+  <div class="eyebrow" style="margin-top:44px" data-ar="رحلة الحاضر" data-en="Attendee Journey">رحلة الحاضر</div>
+  <div class="journey reveal">
+    <div class="jstep"><h4 data-ar="قبل الحدث" data-en="Before">قبل الحدث</h4><p data-ar="جدول ذكي مخصّص وتوصيات جلسات بالذكاء الاصطناعي." data-en="A personalized smart agenda and AI session recommendations.">جدول ذكي مخصّص وتوصيات جلسات بالذكاء الاصطناعي.</p></div>
+    <div class="jstep"><h4 data-ar="أثناء الحدث" data-en="During">أثناء الحدث</h4><p data-ar="تطبيق جوّال وشارة رقمية وشبكات تواصل حية." data-en="Mobile app, digital badge and live networking.">تطبيق جوّال وشارة رقمية وشبكات تواصل حية.</p></div>
+    <div class="jstep"><h4 data-ar="بعد الحدث" data-en="After">بعد الحدث</h4><p data-ar="شهاداتك وتسجيلات الجلسات ومجتمع مستمر." data-en="Your certificates, session recordings and an ongoing community.">شهاداتك وتسجيلات الجلسات ومجتمع مستمر.</p></div>
+  </div>
+</section></div></div>
+
+<!-- ==================================================== BUSINESS -->
+<div class="page" id="page-business"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="فرص الأعمال" data-en="Business">فرص الأعمال</div>
+  <h1 class="h-sec">IDCE <span class="accent">Business Connect</span></h1>
+  <p class="lead" data-ar="ميزتنا التنافسية: نحوّل المعرض من عرض ثابت إلى محرّك صفقات ذكي." data-en="Our edge: we turn the expo from a static showcase into a smart deal engine.">ميزتنا التنافسية: نحوّل المعرض من عرض ثابت إلى محرّك صفقات ذكي.</p></div>
+  <div class="grid g2 reveal">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3 data-ar="مطابقة الأعمال الذكية" data-en="Smart matchmaking">مطابقة الأعمال الذكية</h3><p data-ar="خوارزمية تربط العارض بالمشتري المناسب وتجدول اجتماعات B2B قبل وصولك." data-en="An algorithm matches exhibitors with the right buyers and books B2B meetings before you arrive.">خوارزمية تربط العارض بالمشتري المناسب وتجدول اجتماعات B2B قبل وصولك.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3 data-ar="بوابة الرعاة" data-en="Sponsorship hub">بوابة الرعاة</h3><p data-ar="باقات رعاية بمستويات واضحة مع لوحة أداء رقمية لقياس العائد لحظياً." data-en="Tiered sponsorship packages with a live dashboard to measure ROI in real time.">باقات رعاية بمستويات واضحة مع لوحة أداء رقمية لقياس العائد لحظياً.</p></div>
+  </div>
+  <div class="sec-head" style="margin-top:50px"><div class="eyebrow" data-ar="الباقات" data-en="Packages">الباقات</div>
+  <h2 class="h-sec" data-ar="باقات <span class='accent'>العرض والرعاية</span>" data-en="Exhibitor & <span class='accent'>sponsor</span> packages">باقات <span class="accent">العرض والرعاية</span></h2></div>
+  <div class="tiers reveal">
+    <div class="tier"><h3 data-ar="عارض" data-en="Exhibitor">عارض</h3><div class="price" data-ar="من ٢٥٬٠٠٠<small> ر.س</small>" data-en="fr 25,000<small> SAR</small>">من ٢٥٬٠٠٠<small> ر.س</small></div><ul>
+      <li data-ar="جناح 9 م²" data-en="9 m² booth">جناح 9 م²</li><li data-ar="4 شارات عارض" data-en="4 exhibitor badges">4 شارات عارض</li><li data-ar="إدراج في الدليل" data-en="Directory listing">إدراج في الدليل</li></ul>
+      <button class="btn btn-ghost" onclick="go('register')" data-ar="ابدأ" data-en="Start">ابدأ</button></div>
+    <div class="tier feat"><div class="rt" data-ar="الأكثر طلباً" data-en="Most popular">الأكثر طلباً</div><h3 data-ar="شريك ذهبي" data-en="Gold partner">شريك ذهبي</h3><div class="price" data-ar="من ٩٠٬٠٠٠<small> ر.س</small>" data-en="fr 90,000<small> SAR</small>">من ٩٠٬٠٠٠<small> ر.س</small></div><ul>
+      <li data-ar="جناح 36 م² بموقع مميّز" data-en="36 m² premium booth">جناح 36 م² بموقع مميّز</li><li data-ar="جلسة رعاية على المنصة" data-en="Sponsored stage session">جلسة رعاية على المنصة</li><li data-ar="مطابقة أعمال + ماسح عملاء" data-en="Matchmaking + lead scanner">مطابقة أعمال + ماسح عملاء</li><li data-ar="لوحة أداء رقمية" data-en="ROI dashboard">لوحة أداء رقمية</li></ul>
+      <button class="btn btn-green" onclick="go('register')" data-ar="اختر الباقة" data-en="Choose plan">اختر الباقة</button></div>
+    <div class="tier"><h3 data-ar="راعٍ رئيسي" data-en="Title sponsor">راعٍ رئيسي</h3><div class="price" data-ar="مخصّص" data-en="Custom">مخصّص</div><ul>
+      <li data-ar="حضور للعلامة في كل نقطة" data-en="Brand presence everywhere">حضور للعلامة في كل نقطة</li><li data-ar="كلمة رئيسية افتتاحية" data-en="Opening keynote slot">كلمة رئيسية افتتاحية</li><li data-ar="حملة إعلامية على مدار العام" data-en="Year-round media campaign">حملة إعلامية على مدار العام</li></ul>
+      <button class="btn btn-ghost" onclick="go('register')" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</button></div>
+  </div>
+</section></div></div>
+
+<!-- ==================================================== AWARDS -->
+<div class="page" id="page-awards"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="التميّز" data-en="Excellence">التميّز</div>
+  <h1 class="h-sec" data-ar="جوائز <span class='accent'>IDCE</span>" data-en="The <span class='accent'>IDCE</span> Awards">جوائز <span class="accent">IDCE</span></h1>
+  <p class="lead" data-ar="نكرّم من يرفعون مستوى المهنة — في العيادة والمختبر والبحث والابتكار." data-en="We honor those raising the profession — in the clinic, lab, research and innovation.">نكرّم من يرفعون مستوى المهنة — في العيادة والمختبر والبحث والابتكار.</p></div>
+  <div class="grid g3 reveal">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3 data-ar="طبيب العام" data-en="Clinician of the Year">طبيب العام</h3><p data-ar="تقديراً للتميّز السريري والتأثير في المجتمع." data-en="For clinical excellence and community impact.">تقديراً للتميّز السريري والتأثير في المجتمع.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><h3 data-ar="أفضل بحث علمي" data-en="Best Research">أفضل بحث علمي</h3><p data-ar="للأبحاث المحكّمة الأكثر تأثيراً هذا العام." data-en="For the year's most impactful peer-reviewed work.">للأبحاث المحكّمة الأكثر تأثيراً هذا العام.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0012 2z"/></svg></div><h3 data-ar="جائزة الابتكار" data-en="Innovation Award">جائزة الابتكار</h3><p data-ar="لأفضل حل تقني أو شركة ناشئة في طب الأسنان." data-en="For the best dental tech solution or startup.">لأفضل حل تقني أو شركة ناشئة في طب الأسنان.</p></div>
+  </div>
+  <div class="band reveal" style="margin-top:44px">
+    <h2 data-ar="الترشيحات مفتوحة" data-en="Nominations are open">الترشيحات مفتوحة</h2>
+    <p data-ar="رشّح نفسك أو زميلاً قبل إغلاق باب الترشيح." data-en="Nominate yourself or a colleague before nominations close.">رشّح نفسك أو زميلاً قبل إغلاق باب الترشيح.</p>
+    <div class="hero-actions"><button class="btn btn-dark" onclick="go('register')" data-ar="قدّم ترشيحاً" data-en="Submit a nomination">قدّم ترشيحاً</button></div>
+  </div>
+</section></div></div>
+
+<!-- ==================================================== MEDIA -->
+<div class="page" id="page-media"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="الإعلام والمجتمع" data-en="Media & Community">الإعلام والمجتمع</div>
+  <h1 class="h-sec" data-ar="محتوى يعمل <span class='accent'>365 يوماً</span>" data-en="Content that works <span class='accent'>365 days</span>">محتوى يعمل <span class="accent">365 يوماً</span></h1>
+  <p class="lead" data-ar="لا ننتظر المؤتمر لنتحدث — بودكاست ونشرة ومقالات قيادة فكرية تبقي المجتمع حياً بين النسخ." data-en="We don't wait for the conference to speak — a podcast, newsletter and thought-leadership keep the community alive between editions.">لا ننتظر المؤتمر لنتحدث — بودكاست ونشرة ومقالات قيادة فكرية تبقي المجتمع حياً بين النسخ.</p></div>
+  <div class="grid g4 reveal">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0M12 19v3"/></svg></div><h3 data-ar="بودكاست IDCE" data-en="IDCE Podcast">بودكاست IDCE</h3><p data-ar="حوارات مع قادة المهنة كل أسبوعين." data-en="Bi-weekly talks with industry leaders.">حوارات مع قادة المهنة كل أسبوعين.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></div><h3 data-ar="النشرة الشهرية" data-en="Monthly newsletter">النشرة الشهرية</h3><p data-ar="أبرز الأبحاث والأخبار لصندوق بريدك." data-en="Top research and news to your inbox.">أبرز الأبحاث والأخبار لصندوق بريدك.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-ar="ندوات رقمية" data-en="Webinars">ندوات رقمية</h3><p data-ar="جلسات مباشرة بين نسخ المؤتمر." data-en="Live sessions between editions.">جلسات مباشرة بين نسخ المؤتمر.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div><h3 data-ar="أوراق بيضاء" data-en="White papers">أوراق بيضاء</h3><p data-ar="تقارير سنوية عن اتجاهات المهنة." data-en="Annual reports on industry trends.">تقارير سنوية عن اتجاهات المهنة.</p></div>
+  </div>
+  <div class="eyebrow" style="margin-top:50px" data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</div>
+  <div id="faq"></div>
+  <div class="band reveal" style="margin-top:44px">
+    <h2 data-ar="انضم إلى المجتمع" data-en="Join the community">انضم إلى المجتمع</h2>
+    <p data-ar="اشترك في النشرة واحصل على ملخص أبرز محتوى IDCE كل شهر." data-en="Subscribe for a monthly digest of the best of IDCE.">اشترك في النشرة واحصل على ملخص أبرز محتوى IDCE كل شهر.</p>
+    <div class="hero-actions" style="max-width:460px;margin-inline:auto">
+      <input id="nlEmail" placeholder="name@email.com" style="flex:1;min-width:220px;padding:14px 15px;background:#fff;border:1px solid var(--line2);border-radius:11px;color:var(--ink);font-family:inherit;font-size:14.5px">
+      <button class="btn btn-dark" onclick="subscribeNL()" data-ar="اشترك" data-en="Subscribe">اشترك</button>
+    </div>
+  </div>
+</section></div></div>
+
+<!-- ==================================================== REGISTER -->
+<div class="page" id="page-register"><div class="wrap"><section style="padding-top:140px">
+  <div class="sec-head"><div class="eyebrow" data-ar="التسجيل" data-en="Register">التسجيل</div>
+  <h1 class="h-sec" data-ar="احجز <span class='accent'>مقعدك</span>" data-en="Secure <span class='accent'>your seat</span>">احجز <span class="accent">مقعدك</span></h1></div>
+  <div class="tiers reveal" style="margin-bottom:44px">
+    <div class="tier"><h3 data-ar="طالب" data-en="Student">طالب</h3><div class="price" data-ar="٣٥٠<small> ر.س</small>" data-en="350<small> SAR</small>">٣٥٠<small> ر.س</small></div><ul>
+      <li data-ar="دخول 3 أيام" data-en="3-day access">دخول 3 أيام</li><li data-ar="الجلسات العلمية" data-en="Scientific sessions">الجلسات العلمية</li><li data-ar="شهادة حضور" data-en="Attendance certificate">شهادة حضور</li></ul>
+      <button class="btn btn-ghost" onclick="startReg('student')" data-ar="اختر" data-en="Select">اختر</button></div>
+    <div class="tier feat"><div class="rt" data-ar="الأفضل قيمة" data-en="Best value">الأفضل قيمة</div><h3 data-ar="محترف" data-en="Professional">محترف</h3><div class="price" data-ar="٩٩٠<small> ر.س</small>" data-en="990<small> SAR</small>">٩٩٠<small> ر.س</small></div><ul>
+      <li data-ar="كل مزايا الطالب" data-en="Everything in Student">كل مزايا الطالب</li><li data-ar="ورشتان عمليتان" data-en="2 hands-on workshops">ورشتان عمليتان</li><li data-ar="دخول المعرض + Business Connect" data-en="Expo + Business Connect">دخول المعرض + Business Connect</li><li data-ar="ساعات CME معتمدة" data-en="Accredited CME hours">ساعات CME معتمدة</li></ul>
+      <button class="btn btn-green" onclick="startReg('pro')" data-ar="اختر" data-en="Select">اختر</button></div>
+    <div class="tier"><h3>VIP</h3><div class="price" data-ar="٢٬٤٠٠<small> ر.س</small>" data-en="2,400<small> SAR</small>">٢٬٤٠٠<small> ر.س</small></div><ul>
+      <li data-ar="كل مزايا المحترف" data-en="Everything in Pro">كل مزايا المحترف</li><li data-ar="صالة VIP وجلسات مغلقة" data-en="VIP lounge & closed sessions">صالة VIP وجلسات مغلقة</li><li data-ar="عشاء الجوائز" data-en="Awards gala dinner">عشاء الجوائز</li></ul>
+      <button class="btn btn-ghost" onclick="startReg('vip')" data-ar="اختر" data-en="Select">اختر</button></div>
+  </div>
+  <div class="form-wrap reveal" id="regForm">
+    <div class="steps-ind"><div class="s on"></div><div class="s"></div><div class="s"></div></div>
+    <div id="regStep"></div>
+  </div>
+</section></div></div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <img src="idce-logo-white.svg" alt="IDCE">
+      <p data-ar="المؤتمر والمعرض الدولي لطب الأسنان — منظومة مهنية سعودية تعمل طوال العام، في ريتز كارلتون جدة." data-en="The International Dental Conference & Exhibition — a Saudi year-round professional ecosystem, at The Ritz-Carlton Jeddah.">المؤتمر والمعرض الدولي لطب الأسنان — منظومة مهنية سعودية تعمل طوال العام، في ريتز كارلتون جدة.</p>
+    </div>
+    <div><h5 data-ar="المؤتمر" data-en="Conference">المؤتمر</h5>
+      <a onclick="go('program')" data-ar="البرنامج" data-en="Program">البرنامج</a>
+      <a onclick="go('speakers')" data-ar="المتحدثون" data-en="Speakers">المتحدثون</a>
+      <a onclick="go('academy')" data-ar="الأكاديمية" data-en="Academy">الأكاديمية</a>
+      <a onclick="go('awards')" data-ar="الجوائز" data-en="Awards">الجوائز</a></div>
+    <div><h5 data-ar="الأعمال" data-en="Business">الأعمال</h5>
+      <a onclick="go('exhibition')" data-ar="المعرض" data-en="Exhibition">المعرض</a>
+      <a onclick="go('business')" data-ar="كن عارضاً" data-en="Exhibit">كن عارضاً</a>
+      <a onclick="go('business')" data-ar="الرعاية" data-en="Sponsorship">الرعاية</a>
+      <a onclick="go('media')" data-ar="الإعلام" data-en="Media">الإعلام</a></div>
+    <div><h5 data-ar="تواصل" data-en="Connect">تواصل</h5>
+      <a>info@idce.sa</a>
+      <a data-ar="ريتز كارلتون جدة" data-en="The Ritz-Carlton Jeddah">ريتز كارلتون جدة</a>
+      <a>+966 12 000 0000</a>
+      <a onclick="go('register')" data-ar="سجّل الآن" data-en="Register">سجّل الآن</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span data-ar="© IDCE — جميع الحقوق محفوظة · نموذج تصميم مقترح" data-en="© IDCE — All rights reserved · Design concept">© IDCE — جميع الحقوق محفوظة · نموذج تصميم مقترح</span>
+    <span data-ar="جدة، المملكة العربية السعودية" data-en="Jeddah, Saudi Arabia">جدة، المملكة العربية السعودية</span>
+  </div>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="spkModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="mk"><img id="mkAv" src="" alt=""><div><h3 id="mkName">—</h3><span id="mkRole" style="color:var(--muted)">—</span></div></div>
+    <p id="mkBio" style="color:var(--muted);font-size:14.5px"></p>
+    <div style="margin-top:16px" id="mkSession"></div>
+  </div>
+</div>
+
+<script>
+/* ---------- i18n ---------- */
+let LANG='ar';
+function applyLang(){
+  const h=document.documentElement; h.lang=LANG; h.dir=LANG==='ar'?'rtl':'ltr';
+  document.getElementById('langBtn').textContent=LANG==='ar'?'EN':'ع';
+  document.querySelectorAll('[data-ar]').forEach(el=>{
+    const v=el.getAttribute('data-'+LANG);
+    if(v!=null){ if(/<[a-z]/i.test(v)) el.innerHTML=v; else el.textContent=v; }
+  });
+  if(typeof renderSpeakers==='function') renderSpeakers();
+  if(typeof buildFaq==='function') buildFaq();
+  if(typeof buildSessions==='function') buildSessions();
+  if(typeof renderReg==='function') renderReg();
+  tick();
+}
+function toggleLang(){ LANG=LANG==='ar'?'en':'ar'; applyLang(); }
+
+/* ---------- routing ---------- */
+function go(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById('page-'+page); if(el) el.classList.add('active');
+  document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.getAttribute('data-nav')===page));
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(revealScan,60);
+}
+window.addEventListener('scroll',()=>document.querySelector('.nav').classList.toggle('nav-scrolled',window.scrollY>24));
+
+/* ---------- countdown ---------- */
+/* TODO: set the exact next-edition date here */
+const target=new Date('2026-10-02T09:00:00');
+function tick(){
+  const d=target-new Date();
+  const days=Math.max(0,Math.floor(d/864e5)),h=Math.max(0,Math.floor(d/36e5)%24),m=Math.max(0,Math.floor(d/6e4)%60),s=Math.max(0,Math.floor(d/1e3)%60);
+  const L=LANG==='ar'?['يوم','ساعة','دقيقة','ثانية']:['Days','Hours','Min','Sec'];
+  const cd=document.getElementById('countdown'); if(!cd)return;
+  cd.innerHTML=[[days,L[0]],[h,L[1]],[m,L[2]],[s,L[3]]].map(x=>`<div class="cd-box"><b>${String(x[0]).padStart(2,'0')}</b><span>${x[1]}</span></div>`).join('');
+}
+setInterval(tick,1000); tick();
+
+/* ---------- counters + reveal ---------- */
+function animateCount(el){const t=+el.dataset.count;let c=0;const step=t/55;const iv=setInterval(()=>{c+=step;if(c>=t){c=t;clearInterval(iv);}el.textContent=t>=1000?Math.floor(c).toLocaleString():Math.floor(c);},18);}
+function revealScan(){
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-50)el.classList.add('in');});
+  document.querySelectorAll('[data-count]').forEach(c=>{if(c.getBoundingClientRect().top<window.innerHeight-40&&!c.dataset.done){c.dataset.done=1;animateCount(c);}});
+}
+window.addEventListener('scroll',revealScan);
+
+/* ---------- ecosystem ---------- */
+document.querySelectorAll('.eco-node').forEach(n=>n.addEventListener('click',()=>{document.querySelectorAll('.eco-node').forEach(x=>x.classList.remove('on'));n.classList.add('on');}));
+
+/* ---------- speakers ---------- */
+const SPEAKERS=[
+  {img:'https://randomuser.me/api/portraits/men/32.jpg',ar:['د. عبدالله الحربي','استشاري زراعة الأسنان'],en:['Dr. Abdullah Al-Harbi','Implantology Consultant'],flag:'🇸🇦',bioAr:'استشاري زراعة رقمية بخبرة 18 عاماً ورئيس مسار الزراعة.',bioEn:'Digital implantology consultant with 18 years of experience, chair of the implant track.',sesAr:'الزراعة الفورية الموجّهة رقمياً',sesEn:'Guided immediate implant placement'},
+  {img:'https://randomuser.me/api/portraits/women/44.jpg',ar:['د. سارة خان','خبيرة طب الأسنان الرقمي'],en:['Dr. Sara Khan','Digital Dentistry Expert'],flag:'🇬🇧',bioAr:'رائدة في تطبيقات الذكاء الاصطناعي بالتشخيص السني.',bioEn:'Pioneer in AI applications for dental diagnostics.',sesAr:'الذكاء الاصطناعي في تخطيط الابتسامة',sesEn:'AI in smile design'},
+  {img:'https://randomuser.me/api/portraits/men/52.jpg',ar:['أ.د. ماركو روسي','أستاذ التعويضات'],en:['Prof. Marco Rossi','Prosthodontics Professor'],flag:'🇮🇹',bioAr:'أستاذ التعويضات بجامعة ميلانو ومؤلف 3 مراجع.',bioEn:'Prosthodontics professor at Milan University, author of 3 textbooks.',sesAr:'التعويضات الخزفية الحديثة',sesEn:'Modern ceramic restorations'},
+  {img:'https://randomuser.me/api/portraits/women/68.jpg',ar:['د. لينا شن','جراحة الوجه والفكين'],en:['Dr. Lina Chen','Maxillofacial Surgeon'],flag:'🇸🇬',bioAr:'جرّاحة وجه وفكين ومتحدثة دولية في التخدير.',bioEn:'Maxillofacial surgeon and international speaker on sedation.',sesAr:'إدارة الحالات الجراحية المعقّدة',sesEn:'Managing complex surgical cases'},
+  {img:'https://randomuser.me/api/portraits/men/76.jpg',ar:['د. عمر العتيبي','تقويم الأسنان'],en:['Dr. Omar Al-Otaibi','Orthodontist'],flag:'🇸🇦',bioAr:'أخصائي تقويم شفاف ومحاضر معتمد.',bioEn:'Clear-aligner orthodontist and certified lecturer.',sesAr:'التقويم الشفاف: متى وكيف',sesEn:'Clear aligners: when & how'},
+  {img:'https://randomuser.me/api/portraits/women/26.jpg',ar:['د. جوليا دوبوا','طب أسنان الأطفال'],en:['Dr. Julia Dubois','Pediatric Dentist'],flag:'🇫🇷',bioAr:'خبيرة سلوك الطفل في العيادة السنية.',bioEn:'Expert in child behavior management.',sesAr:'التعامل مع قلق الأطفال',sesEn:'Managing pediatric anxiety'},
+  {img:'https://randomuser.me/api/portraits/men/64.jpg',ar:['د. راكيش ناير','علاج الجذور'],en:['Dr. Rakesh Nair','Endodontist'],flag:'🇮🇳',bioAr:'أخصائي علاج جذور مجهري.',bioEn:'Microscopic endodontics specialist.',sesAr:'إعادة المعالجة اللبية',sesEn:'Endodontic retreatment'},
+  {img:'https://randomuser.me/api/portraits/women/57.jpg',ar:['د. فاطمة الزهراني','إدارة العيادات'],en:['Dr. Fatimah Al-Zahrani','Practice Management'],flag:'🇸🇦',bioAr:'مستشارة نمو العيادات والتسويق الطبي.',bioEn:'Clinic growth and medical marketing consultant.',sesAr:'بناء عيادة مربحة ومستدامة',sesEn:'Building a profitable practice'}
+];
+function spkCard(s,i){return `<div class="spk reveal in" onclick="openSpk(${i})"><img class="ph" src="${s.img}" alt=""><div class="meta"><span class="flag">${s.flag}</span><h4>${s[LANG][0]}</h4><span>${s[LANG][1]}</span></div></div>`;}
+function renderSpeakers(){
+  const p=document.getElementById('spkPreview'); if(p) p.innerHTML=SPEAKERS.slice(0,4).map(spkCard).join('');
+  const f=document.getElementById('spkFull'); if(f) f.innerHTML=SPEAKERS.map(spkCard).join('');
+}
+function openSpk(i){const s=SPEAKERS[i];
+  document.getElementById('mkAv').src=s.img;
+  document.getElementById('mkName').textContent=s[LANG][0];
+  document.getElementById('mkRole').textContent=s[LANG][1]+' · '+s.flag;
+  document.getElementById('mkBio').textContent=LANG==='ar'?s.bioAr:s.bioEn;
+  const label=LANG==='ar'?'الجلسة':'Session';
+  document.getElementById('mkSession').innerHTML=`<span class="track-badge t-clinical">${label}</span> <b style="margin-inline-start:8px">${LANG==='ar'?s.sesAr:s.sesEn}</b>`;
+  document.getElementById('spkModal').classList.add('on');
+}
+function closeModal(){document.getElementById('spkModal').classList.remove('on');}
+document.getElementById('spkModal').addEventListener('click',e=>{if(e.target.id==='spkModal')closeModal();});
+
+/* ---------- program ---------- */
+const SESSIONS=[
+ {d:1,t:'clinical',time:'09:00',ar:['كلمة الافتتاح والجلسة الرئيسية','لجنة IDCE العلمية'],en:['Opening & keynote','IDCE Scientific Committee']},
+ {d:1,t:'clinical',time:'10:30',ar:['الزراعة الفورية الموجّهة رقمياً','د. عبدالله الحربي'],en:['Guided immediate implants','Dr. Abdullah Al-Harbi']},
+ {d:1,t:'digital',time:'12:00',ar:['الذكاء الاصطناعي في تخطيط الابتسامة','د. سارة خان'],en:['AI in smile design','Dr. Sara Khan']},
+ {d:1,t:'business',time:'14:00',ar:['بناء عيادة مربحة ومستدامة','د. فاطمة الزهراني'],en:['Building a profitable practice','Dr. Fatimah Al-Zahrani']},
+ {d:1,t:'research',time:'15:30',ar:['جلسة عرض الأبحاث والملصقات','منتدى الباحثين'],en:['Research & poster session','Research Forum']},
+ {d:2,t:'clinical',time:'09:30',ar:['التعويضات الخزفية الحديثة','أ.د. ماركو روسي'],en:['Modern ceramic restorations','Prof. Marco Rossi']},
+ {d:2,t:'digital',time:'11:00',ar:['سير العمل الرقمي الكامل CAD/CAM','ورشة عملية'],en:['Full digital CAD/CAM workflow','Hands-on workshop']},
+ {d:2,t:'clinical',time:'13:00',ar:['إدارة الحالات الجراحية المعقّدة','د. لينا شن'],en:['Managing complex surgical cases','Dr. Lina Chen']},
+ {d:2,t:'business',time:'15:00',ar:['جلسة Business Connect للمطابقة','فريق IDCE'],en:['Business Connect matchmaking','IDCE Team']},
+ {d:3,t:'clinical',time:'10:00',ar:['التقويم الشفاف: متى وكيف','د. عمر العتيبي'],en:['Clear aligners: when & how','Dr. Omar Al-Otaibi']},
+ {d:3,t:'clinical',time:'11:30',ar:['التعامل مع قلق الأطفال','د. جوليا دوبوا'],en:['Managing pediatric anxiety','Dr. Julia Dubois']},
+ {d:3,t:'research',time:'13:30',ar:['منتدى الابتكار والشركات الناشئة','Innovation Hub'],en:['Innovation & startup forum','Innovation Hub']},
+ {d:3,t:'business',time:'16:00',ar:['حفل توزيع جوائز IDCE','عشاء الختام'],en:['IDCE Awards ceremony','Closing gala']}
+];
+let curDay=1,curTrack='all';
+const TNAME={clinical:['سريري','Clinical'],digital:['رقمي','Digital'],business:['أعمال','Business'],research:['بحثي','Research']};
+function buildSessions(){
+  const list=document.getElementById('sessionList'); if(!list)return;
+  const rows=SESSIONS.filter(s=>s.d===curDay&&(curTrack==='all'||s.t===curTrack));
+  const li=LANG==='ar'?0:1;
+  list.innerHTML=rows.map(s=>`<div class="session"><div class="time">${s.time}<small>${LANG==='ar'?'ص/م':'HRS'}</small></div><div><h4>${s[LANG][0]}</h4><div class="who">${s[LANG][1]}</div></div><div class="track-badge t-${s.t}">${TNAME[s.t][li]}</div></div>`).join('')
+    || `<p style="color:var(--muted)">${LANG==='ar'?'لا جلسات في هذا المسار.':'No sessions in this track.'}</p>`;
+}
+document.querySelectorAll('#dayTabs .tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('#dayTabs .tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curDay=+t.dataset.day;buildSessions();}));
+document.querySelectorAll('#trackFilters .filter').forEach(f=>f.addEventListener('click',()=>{document.querySelectorAll('#trackFilters .filter').forEach(x=>x.classList.remove('on'));f.classList.add('on');curTrack=f.dataset.track;buildSessions();}));
+
+/* ---------- floorplan ---------- */
+const BOOTHS=[
+ {x:4,y:6,w:26,h:34,cls:'premium',n:'A1',ar:['DentTech','منصة أنظمة CAD/CAM'],en:['DentTech','CAD/CAM systems']},
+ {x:34,y:6,w:26,h:34,cls:'premium',n:'A2',ar:['ImplantPro','حلول الزراعة'],en:['ImplantPro','Implant solutions']},
+ {x:64,y:6,w:30,h:22,cls:'std',n:'B1',ar:['OraCloud','برمجيات العيادات'],en:['OraCloud','Clinic software']},
+ {x:64,y:32,w:14,h:22,cls:'std',n:'B2',ar:['ScanX','ماسحات رقمية'],en:['ScanX','Intraoral scanners']},
+ {x:80,y:32,w:14,h:22,cls:'std',n:'B3',ar:['BioDent','مواد حيوية'],en:['BioDent','Biomaterials']},
+ {x:4,y:46,w:18,h:24,cls:'std',n:'C1',ar:['ClearAlign','تقويم شفاف'],en:['ClearAlign','Clear aligners']},
+ {x:26,y:46,w:18,h:24,cls:'std',n:'C2',ar:['MedGulf','أجهزة طبية'],en:['MedGulf','Medical devices']},
+ {x:48,y:46,w:20,h:24,cls:'startup',n:'S1',ar:['SmileAI','ذكاء اصطناعي'],en:['SmileAI','AI startup']},
+ {x:72,y:60,w:22,h:14,cls:'startup',n:'S2',ar:['منطقة الناشئة','Innovation Hub'],en:['Startup zone','Innovation Hub']},
+ {x:4,y:74,w:40,h:14,cls:'std',n:'D1',ar:['قاعة الجلسات','Main stage'],en:['Session hall','Main stage']},
+ {x:48,y:74,w:46,h:14,cls:'premium',n:'D2',ar:['الراعي الرئيسي','Title sponsor'],en:['Title sponsor','Main plaza']}
+];
+function buildFloor(){const hall=document.getElementById('hall');if(!hall)return;
+  hall.innerHTML=BOOTHS.map((b,i)=>`<div class="booth ${b.cls}" style="left:${b.x}%;top:${b.y}%;width:${b.w}%;height:${b.h}%" onmouseenter="boothHover(${i})" onclick="boothHover(${i})">${b.n}</div>`).join('');}
+function boothHover(i){const b=BOOTHS[i];document.getElementById('boothInfo').innerHTML=`<b>${b.n} · ${b[LANG][0]}</b> — ${b[LANG][1]}`;}
+
+/* ---------- faq ---------- */
+const FAQ=[
+ {ar:['هل المؤتمر معتمد لساعات التعليم المستمر؟','نعم، جميع الجلسات والورش معتمدة بساعات CME موثّقة من الجهات المختصة.'],en:['Is the conference accredited for CME?','Yes — all sessions and workshops carry verified CME hours from accredited bodies.']},
+ {ar:['هل يمكن الحضور عن بُعد؟','نعم، تتوفر تذكرة رقمية للوصول المباشر ولتسجيلات الجلسات عبر منصة IDCE.'],en:['Can I attend remotely?','Yes — a digital pass gives you live access and session recordings on the IDCE platform.']},
+ {ar:['كيف أصبح عارضاً أو راعياً؟','عبر صفحة الأعمال Business Connect يمكنك اختيار الباقة وحجز جناحك مباشرة.'],en:['How do I exhibit or sponsor?','Via the Business Connect page you can pick a package and book your booth directly.']},
+ {ar:['هل تتوفر تذاكر مخفّضة للطلاب؟','نعم، تذكرة الطالب متاحة بسعر خاص مع إثبات القيد الجامعي.'],en:['Are there student discounts?','Yes — a special student rate is available with proof of enrollment.']}
+];
+function buildFaq(){const f=document.getElementById('faq');if(!f)return;
+  f.innerHTML=FAQ.map(q=>`<div class="acc" onclick="this.classList.toggle('open')"><div class="acc-q">${q[LANG][0]}<span class="pm">+</span></div><div class="acc-a"><p>${q[LANG][1]}</p></div></div>`).join('');}
+function subscribeNL(){const e=document.getElementById('nlEmail').value;alert(LANG==='ar'?('شكراً! تم تسجيل: '+(e||'بريدك')):('Thanks! Subscribed: '+(e||'your email')));}
+
+/* ---------- register ---------- */
+let regStep=0,regTier='pro';
+const REG=[{ar:'المعلومات الشخصية',en:'Personal details'},{ar:'التخصص والاهتمامات',en:'Specialty & interests'},{ar:'المراجعة والدفع',en:'Review & payment'}];
+function startReg(t){regTier=t;regStep=0;renderReg();document.getElementById('regForm').scrollIntoView({behavior:'smooth'});}
+function renderReg(){
+  document.querySelectorAll('.steps-ind .s').forEach((s,i)=>s.classList.toggle('on',i<=regStep));
+  const box=document.getElementById('regStep');if(!box)return;const ar=LANG==='ar';
+  const tierName={student:ar?'طالب':'Student',pro:ar?'محترف':'Professional',vip:'VIP'}[regTier];
+  if(regStep===0){
+    box.innerHTML=`<h3 style="margin-bottom:18px;text-transform:none">${REG[0][LANG]}</h3>
+    <div class="field"><label>${ar?'الاسم الكامل':'Full name'}</label><input placeholder="${ar?'اكتب اسمك':'Your name'}"></div>
+    <div class="field"><label>${ar?'البريد الإلكتروني':'Email'}</label><input placeholder="name@email.com"></div>
+    <div class="field"><label>${ar?'رقم الجوال':'Mobile'}</label><input placeholder="+966"></div>
+    <div class="form-nav"><span></span><button class="btn btn-green" onclick="regNext(1)">${ar?'التالي':'Next'}</button></div>`;
+  }else if(regStep===1){
+    box.innerHTML=`<h3 style="margin-bottom:18px;text-transform:none">${REG[1][LANG]}</h3>
+    <div class="field"><label>${ar?'التخصص':'Specialty'}</label><select><option>${ar?'طب أسنان عام':'General dentistry'}</option><option>${ar?'زراعة':'Implantology'}</option><option>${ar?'تقويم':'Orthodontics'}</option><option>${ar?'طالب':'Student'}</option></select></div>
+    <label style="font-family:var(--ff-head);font-size:12px;color:var(--muted);margin-bottom:8px;display:block;letter-spacing:.5px">${ar?'المسارات التي تهمك':'Tracks you care about'}</label>
+    <div class="opt-grid"><div class="opt" onclick="this.classList.toggle('on')">${ar?'سريري':'Clinical'}</div><div class="opt" onclick="this.classList.toggle('on')">${ar?'رقمي':'Digital'}</div><div class="opt" onclick="this.classList.toggle('on')">${ar?'أعمال':'Business'}</div><div class="opt" onclick="this.classList.toggle('on')">${ar?'بحثي':'Research'}</div></div>
+    <div class="form-nav"><button class="btn btn-ghost" onclick="regNext(-1)">${ar?'رجوع':'Back'}</button><button class="btn btn-green" onclick="regNext(1)">${ar?'التالي':'Next'}</button></div>`;
+  }else{
+    const price={student:'350',pro:'990',vip:'2,400'}[regTier];
+    box.innerHTML=`<h3 style="margin-bottom:18px;text-transform:none">${REG[2][LANG]}</h3>
+    <div class="notice">${ar?'الباقة المختارة':'Selected plan'}: <b>${tierName}</b> — ${price} ${ar?'ر.س':'SAR'}</div>
+    <div class="field"><label>${ar?'كود الخصم (اختياري)':'Promo code (optional)'}</label><input placeholder="EARLY30"></div>
+    <div class="form-nav"><button class="btn btn-ghost" onclick="regNext(-1)">${ar?'رجوع':'Back'}</button><button class="btn btn-green" onclick="regDone()">${ar?'إتمام التسجيل':'Complete'}</button></div>`;
+  }
+}
+function regNext(d){regStep=Math.max(0,Math.min(2,regStep+d));renderReg();}
+function regDone(){const ar=LANG==='ar';
+  document.querySelectorAll('.steps-ind .s').forEach(s=>s.classList.add('on'));
+  document.getElementById('regStep').innerHTML=`<div class="done-msg"><div class="big">✓</div><h3 style="text-transform:none">${ar?'تم تأكيد تسجيلك':'Registration confirmed'}</h3><p style="color:var(--muted);margin-top:8px">${ar?'أرسلنا شارتك الرقمية وتفاصيل الدخول إلى بريدك. نراك في جدة!':'We have sent your digital badge and access details by email. See you in Jeddah!'}</p><button class="btn btn-ghost" style="margin-top:18px" onclick="go('home')">${ar?'العودة للرئيسية':'Back to home'}</button></div>`;
+}
+
+/* ---------- init ---------- */
+renderSpeakers();buildFloor();buildFaq();renderReg();
+applyLang();revealScan();
+</script>
+</body>
+</html>
